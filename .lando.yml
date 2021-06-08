@@ -6,3 +6,4 @@ config:
   via: nginx
   database: mysql:5.7
   xdebug: false
+  
