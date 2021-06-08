@@ -1,0 +1,17 @@
+version: '3'
+services:
+    web:
+        image: nginx:latest
+        ports:
+            - "80:80"
+        volumes:
+            - .docker/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+            - ./:/app
+    php:
+        build:
+            context: .
+            dockerfile: .docker/php/Dockerfile
+        volumes:
+            - ./:/app
+            - .docker/php/custom-php.ini:/usr/local/etc/php/conf.d/custom.ini
+
